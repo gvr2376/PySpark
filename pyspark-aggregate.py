@@ -13,7 +13,7 @@ from pyspark.sql.functions import variance, var_samp, var_pop
 
 spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()
 
-simpleData = [
+raw_data = [
     ("James", "Sales", 3000),
     ("Michael", "Sales", 4600),
     ("Robert", "Sales", 4100),
@@ -27,7 +27,7 @@ simpleData = [
 ]
 schema = ["employee_name", "department", "salary"]
 
-df = spark.createDataFrame(data=simpleData, schema=schema)
+df = spark.createDataFrame(data=raw_data, schema=schema)
 df.printSchema()
 df.show(truncate=False)
 
